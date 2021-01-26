@@ -65,9 +65,17 @@ def generateAvaConfig(token_map):
 
 def uploadLogos():
     repo = Repo('.')
+    origin = repo.remotes['origin']
     assert not repo.bare
     breakpoint()
-    print("Stopper")
+    #print("Stopper")
+    for index, logo in enumerate(repo.untracked_files):
+        repo.index.add(logo)
+        if index % 5 == 0:
+            repo.index.commit("Uploading logo checkpoint " + str(index))
+            origin.push()
+            break
+
 
 
 def main():
