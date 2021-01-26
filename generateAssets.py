@@ -67,14 +67,13 @@ def uploadLogos():
     repo = Repo('.')
     origin = repo.remotes['origin']
     assert not repo.bare
-    breakpoint()
+    #breakpoint()
     #print("Stopper")
     for index, logo in enumerate(repo.untracked_files):
         repo.index.add(logo)
-        if index % 5 == 0:
-            repo.index.commit("Uploading logo checkpoint " + str(index))
+        if (index != 0 and index % 5 == 0) or index == len(repo.untracked_files) - 1:
+            repo.index.commit("Uploading logo checkpoint " + str(index / 5))
             origin.push()
-            break
 
 
 
