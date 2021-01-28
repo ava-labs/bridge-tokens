@@ -7,7 +7,7 @@ import shutil
 import os
 from git import Repo
 
-TOKEN_MAP = 'eth_token_mapping.csv'
+TOKEN_MAP = 'current_mapping_libre.csv'
 LOGOS_IN_DIR = 'Logos'
 LOGOS_OUT_DIR = 'avalanche-tokens'
 ETH_CONFIG = 'ethereum.config'
