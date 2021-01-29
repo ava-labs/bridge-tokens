@@ -8,7 +8,7 @@ import os
 from git import Repo
 from pycoingecko import CoinGeckoAPI
 
-TOKEN_MAP = 'current_mapping_libre.csv'
+TOKEN_MAP = 'penultimate.csv'
 LOGOS_IN_DIR = 'Logos'
 LOGOS_OUT_DIR = 'avalanche-tokens'
 ETH_CONFIG_100 = 'ethereum100.config'
@@ -83,7 +83,7 @@ def avaTop100(token_map):
                 data['name'] = row.iloc[0]['Avalanche Token Name']
                 data['symbol'] = row.iloc[0]['Avalanche Token Symbol']
                 data['imageUri'] = HOSTED_URL + LOGOS_OUT_DIR + '/' + row.iloc[0]['Avalanche Token Address'] +  '/logo.png'
-                data['resourceId'] = row.iloc[0]['Resource ID']
+                data['resourceId'] = '0x' + row.iloc[0]['Resource ID']
                 data_lst.append(data)
             if found == 100:
                 break
@@ -123,7 +123,7 @@ def avaTop150(token_map):
                 data['name'] = row.iloc[0]['Avalanche Token Name']
                 data['symbol'] = row.iloc[0]['Avalanche Token Symbol']
                 data['imageUri'] = HOSTED_URL + LOGOS_OUT_DIR + '/' + row.iloc[0]['Avalanche Token Address'] +  '/logo.png'
-                data['resourceId'] = row.iloc[0]['Resource ID']
+                data['resourceId'] = '0x' + row.iloc[0]['Resource ID']
                 data_lst.append(data)
             if found == 150:
                 break
@@ -164,7 +164,7 @@ def ethTop100(token_map):
                 data['name'] = row.iloc[0]['Ethereum Token Name']
                 data['symbol'] = row.iloc[0]['Ethereum Token Symbol']
                 data['imageUri'] = HOSTED_URL + LOGOS_OUT_DIR + '/' + row.iloc[0]['Avalanche Token Address'] +  '/logo.png'
-                data['resourceId'] = row.iloc[0]['Resource ID']
+                data['resourceId'] = '0x' + row.iloc[0]['Resource ID']
                 data_lst.append(data)
             if found == 100:
                 break
@@ -204,7 +204,7 @@ def ethTop150(token_map):
                 data['name'] = row.iloc[0]['Ethereum Token Name']
                 data['symbol'] = row.iloc[0]['Ethereum Token Symbol']
                 data['imageUri'] = HOSTED_URL + LOGOS_OUT_DIR + '/' + row.iloc[0]['Avalanche Token Address'] +  '/logo.png'
-                data['resourceId'] = row.iloc[0]['Resource ID']
+                data['resourceId'] = '0x' + row.iloc[0]['Resource ID']
                 data_lst.append(data)
             if found == 150:
                 break

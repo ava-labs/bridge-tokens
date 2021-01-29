@@ -7,7 +7,7 @@ import shutil
 import os
 from git import Repo
 
-TOKEN_MAP = 'current_mapping_libre.csv'
+TOKEN_MAP = 'penultimate.csv'
 LOGOS_IN_DIR = 'Logos'
 LOGOS_OUT_DIR = 'avalanche-tokens'
 ETH_CONFIG = 'ethereum.config'
@@ -42,7 +42,7 @@ def generateEthConfig(token_map):
         data['name'] = row['Ethereum Token Name']
         data['symbol'] = row['Ethereum Token Symbol']
         data['imageUri'] = HOSTED_URL + LOGOS_OUT_DIR + '/' + row['Avalanche Token Address'] +  '/logo.png'
-        data['resourceId'] = row['Resource ID']
+        data['resourceId'] = '0x' + row['Resource ID']
         data_lst.append(data)
     out_file['data'] = data_lst
     with open(ETH_CONFIG, 'w') as json_file:
@@ -57,7 +57,7 @@ def generateAvaConfig(token_map):
         data['name'] = row['Avalanche Token Name']
         data['symbol'] = row['Avalanche Token Symbol']
         data['imageUri'] = HOSTED_URL + LOGOS_OUT_DIR + '/' + row['Avalanche Token Address'] +  '/logo.png'
-        data['resourceId'] = row['Resource ID']
+        data['resourceId'] = '0x' + row['Resource ID']
         data_lst.append(data)
     out_file['data'] = data_lst
     with open(AVA_CONFIG, 'w') as json_file:
@@ -80,9 +80,9 @@ def uploadLogos():
 def main():
     token_map = read_logos()
     #copy_logos(token_map)
-    #generateEthConfig(token_map)
-    #generateAvaConfig(token_map)
-    uploadLogos()
+    generateEthConfig(token_map)
+    generateAvaConfig(token_map)
+    #uploadLogos()
 
 if __name__ == '__main__':
     main()
