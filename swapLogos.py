@@ -32,7 +32,7 @@ def swap_logos(token_map, old_token_map):
             print("Collision for ", row['Avalanche Token Symbol'])
         else:
             ava_address = row['Avalanche Token Address']
-            old_ava_address = old_row['Avalanche Token Address']
+            old_ava_address = old_row.iloc[0]['Avalanche Token Address']
 
             old_out_dir = LOGOS_OUT_DIR + '/' + old_ava_address
             out_dir = LOGOS_OUT_DIR + '/' + ava_address
@@ -45,7 +45,7 @@ def swap_logos(token_map, old_token_map):
             try:
                 shutil.move(old_out_dir, out_dir)
             except:
-                print("Couldn't rename ", old_row['Avalanche Token Name'], row['Avalanche Token Address'])
+                print("Couldn't rename ", old_out_dir, out_dir)
 
 def main():
     token_map = read_logos()
