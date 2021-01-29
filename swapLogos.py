@@ -43,7 +43,7 @@ def swap_logos(token_map, old_token_map):
             #os.mkdir(out_dir)
 
             try:
-                os.rename(old_out_dir, out_dir)
+                shutil.move(old_out_dir, out_dir)
             except:
                 print("Couldn't rename ", old_row['Avalanche Token Name'], row['Avalanche Token Address'])
 
