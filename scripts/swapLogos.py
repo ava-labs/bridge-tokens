@@ -27,7 +27,7 @@ def swap_logos(token_map, old_token_map):
     for _, row in token_map.iterrows():
         old_row = old_token_map[old_token_map["Avalanche Token Symbol"] == row['Avalanche Token Symbol']]
         if len(old_row.index) == 0:
-            print("No token for ", row['Avalanche Token Symbol'])
+            print("No token for ", row['Avalanche Token Symbol'], row['Ethereum Token Address'], row['Avalanche Token Address'])
         elif len(old_row.index) > 1:
             print("Collision for ", row['Avalanche Token Symbol'])
         else:
@@ -43,7 +43,8 @@ def swap_logos(token_map, old_token_map):
             #os.mkdir(out_dir)
 
             try:
-                shutil.move(old_out_dir, out_dir)
+                #shutil.move(old_out_dir, out_dir)
+                pass
             except:
                 print("Couldn't rename ", old_out_dir, out_dir)
 
