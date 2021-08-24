@@ -1,3 +1,9 @@
+# NOTICE
+
+The Avalanche Ethereum Bridge has been decommissioned. Visit the new Avalanche Bridge [here](https://bridge.avax.network/).
+
+To add your token to the Avalanche Bridge, refer to the instructions [here](https://github.com/ava-labs/avalanche-bridge-resources).
+
 # Avalanche Bridged Tokens and Assets
 
 This repo contains the bridge token mappings for the [Avalanche Ethereum Bridge](https://aeb.xyz) and assets for displaying token logos.
